@@ -29,6 +29,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h3`
+  margin: 0px;
   font-size: 28px;
   font-weight: 700;
   line-height: 32px;
