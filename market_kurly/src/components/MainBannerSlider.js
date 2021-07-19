@@ -137,7 +137,6 @@ const Wrap = styled.div`
   width: 100%;
   height: 370px;
   text-align: center;
-  position: relative;
   margin: 0px auto;
   & .slick-next {
     right: 250px;
