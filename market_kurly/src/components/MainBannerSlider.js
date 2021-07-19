@@ -34,10 +34,16 @@ function SamplePrevArrow(props) {
   );
 }
 
+const StyledSlider = styled(Slider)`
+  .slick-slide div {
+    outline: none; // 슬라이드 클릭시 파란선을 제거하기 위해서 작성
+  }
+`;
+
 const MainBannerSlider = (props) => {
   const settings = {
-    dots: true,
-    // infinite: true,
+    dots: false,
+    infinite: true,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -49,7 +55,7 @@ const MainBannerSlider = (props) => {
   return (
     <MainBannerWrap>
       <Wrap>
-        <Slider {...settings}>
+        <StyledSlider {...settings}>
           <div>
             <img
               src={
@@ -113,7 +119,7 @@ const MainBannerSlider = (props) => {
               }
             />
           </div>
-        </Slider>
+        </StyledSlider>
       </Wrap>
     </MainBannerWrap>
   );
@@ -122,6 +128,7 @@ const MainBannerSlider = (props) => {
 const MainBannerWrap = styled.div`
   margin: 0px auto;
   max-width: 100%;
+  box-sizing: border-box;
 `;
 
 const Wrap = styled.div`
@@ -131,7 +138,7 @@ const Wrap = styled.div`
   height: 370px;
   text-align: center;
   position: relative;
-  margin: 5% auto;
+  margin: 0px auto;
   & .slick-next {
     right: 250px;
     z-index: 9998;
@@ -147,6 +154,7 @@ const Wrap = styled.div`
       min-width: 50px;
       max-width: 200px;
       font-size: 50px;
+      transition: opacity 600ms;
     }
     & .slick-next:before {
       opacity: 0.75;
@@ -154,6 +162,7 @@ const Wrap = styled.div`
       min-width: 50px;
       max-width: 200px;
       font-size: 50px;
+      transition: opacity 600ms;
     }
   }
   & .slick-prev:before {
