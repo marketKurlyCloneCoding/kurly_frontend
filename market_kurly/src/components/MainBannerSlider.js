@@ -11,12 +11,18 @@ function SampleNextArrow(props) {
       className={className}
       style={{
         ...style,
-        display: "block",
-        background:
-          "https://res.kurly.com/pc/service/main/1908/ico_prev1_x1.png",
+        position: "absolute",
+        top: "44%",
+        right: "360px",
+        zIndex: 9998,
       }}
       onClick={onClick}
-    />
+    >
+      <img
+        src="https://res.kurly.com/pc/service/main/1908/ico_next1_x1.png"
+        alt=""
+      />
+    </div>
   );
 }
 
@@ -27,10 +33,18 @@ function SamplePrevArrow(props) {
       className={className}
       style={{
         ...style,
-        display: "block",
+        position: "absolute",
+        top: "44%",
+        left: "330px",
+        zIndex: 9999,
       }}
       onClick={onClick}
-    />
+    >
+      <img
+        src="https://res.kurly.com/pc/service/main/1908/ico_prev1_x1.png"
+        alt=""
+      />
+    </div>
   );
 }
 
@@ -38,13 +52,78 @@ const StyledSlider = styled(Slider)`
   .slick-slide div {
     outline: none; // 슬라이드 클릭시 파란선을 제거하기 위해서 작성
   }
+  .slick-prev:before,
+  .slick-next:before {
+    content: none !important;
+  }
+  .slick-prev,
+  .slick-next {
+    opacity: 0;
+  }
+  :hover {
+    & .slick-prev,
+    .slick-next {
+      opacity: 1;
+      transform: translate(0, -50%);
+      transition: opacity 600ms;
+    }
+  }
 `;
+
+const ImageContainer = styled.div`
+  width: 100%;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  position: relative;
+  height: 370px;
+`;
+
+const items = [
+  {
+    id: 1,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1596164134.jpg",
+  },
+  {
+    id: 2,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626322633.jpg",
+  },
+  {
+    id: 3,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626261408.jpg",
+  },
+  {
+    id: 4,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626419464.jpg",
+  },
+  {
+    id: 5,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626260202.jpg",
+  },
+  {
+    id: 6,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626420787.jpg",
+  },
+  {
+    id: 7,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626400824.jpg",
+  },
+  {
+    id: 8,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1625623216.jpg",
+  },
+  {
+    id: 9,
+    url: "https://img-cf.kurly.com/shop/data/main/1/pc_img_1621561009.jpg",
+  },
+];
 
 const MainBannerSlider = (props) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -56,69 +135,13 @@ const MainBannerSlider = (props) => {
     <MainBannerWrap>
       <Wrap>
         <StyledSlider {...settings}>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1596164134.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626322633.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626261408.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626419464.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626260202.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626420787.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1626400824.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1625623216.jpg"
-              }
-            />
-          </div>
-          <div>
-            <img
-              src={
-                "https://img-cf.kurly.com/shop/data/main/1/pc_img_1621561009.jpg"
-              }
-            />
-          </div>
+          {items.map((item) => {
+            return (
+              <ImageContainer key={item.id}>
+                <Image src={item.url} />
+              </ImageContainer>
+            );
+          })}
         </StyledSlider>
       </Wrap>
     </MainBannerWrap>
@@ -135,43 +158,6 @@ const Wrap = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 370px;
-  text-align: center;
-  margin: 0px auto;
-  & .slick-next {
-    right: 250px;
-    z-index: 9998;
-  }
-  & .slick-prev {
-    left: 250px;
-    z-index: 9999;
-  }
-  & :hover {
-    & .slick-prev:before {
-      opacity: 0.75; // 기존에 숨어있던 화살표 버튼이 보이게
-      color: #6b6b6b81;
-      min-width: 50px;
-      max-width: 200px;
-      font-size: 50px;
-      transition: opacity 600ms;
-    }
-    & .slick-next:before {
-      opacity: 0.75;
-      color: #6b6b6b81;
-      min-width: 50px;
-      max-width: 200px;
-      font-size: 50px;
-      transition: opacity 600ms;
-    }
-  }
-  & .slick-prev:before {
-    opacity: 0; // 기존에 숨어있던 화살표 버튼이 보이게
-    color: black; // 버튼 색은 검은색으로
-  }
-  & .slick-next:before {
-    opacity: 0;
-    color: black;
-  }
 `;
 
 export default MainBannerSlider;
