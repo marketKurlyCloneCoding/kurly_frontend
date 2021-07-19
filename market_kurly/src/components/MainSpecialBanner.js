@@ -1,6 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
+const items = [
+  {
+    id: 1,
+    url: "https://img-cf.kurly.com/shop/data/main/3/pc_img_1626399404.jpg",
+    name: "라로슈포제 최대 20% 할인",
+    desc: "피부 전문가가 선택한",
+  },
+  {
+    id: 2,
+    url: "https://img-cf.kurly.com/shop/data/main/3/pc_img_1626656317.jpg",
+    name: "애슐리 최대 15% 할인",
+    desc: "아메리칸 고메 뷔페",
+  },
+  {
+    id: 3,
+    url: "https://img-cf.kurly.com/shop/data/main/3/pc_img_1626246844.jpg",
+    name: "튀김공방 최대 20% 할인",
+    desc: "겉은 바삭, 속은 촉촉",
+  },
+];
+
 const MainSpecialBanner = (props) => {
   return (
     <Container>
@@ -9,27 +30,17 @@ const MainSpecialBanner = (props) => {
       </TitleContainer>
       <Wrap>
         <ProductContainer>
-          <ImageContainer>
-            <Image src="https://img-cf.kurly.com/shop/data/main/3/pc_img_1626399404.jpg" />
-            <InfoContainer>
-              <Name>라로슈포제 최대 20% 할인</Name>
-              <Desc>피부 전문가가 선택한</Desc>
-            </InfoContainer>
-          </ImageContainer>
-          <ImageContainer>
-            <Image src="https://img-cf.kurly.com/shop/data/main/3/pc_img_1626399404.jpg" />
-            <InfoContainer>
-              <Name>라로슈포제 최대 20% 할인</Name>
-              <Desc>피부 전문가가 선택한</Desc>
-            </InfoContainer>
-          </ImageContainer>
-          <ImageContainer>
-            <Image src="https://img-cf.kurly.com/shop/data/main/3/pc_img_1626399404.jpg" />
-            <InfoContainer>
-              <Name>라로슈포제 최대 20% 할인</Name>
-              <Desc>피부 전문가가 선택한</Desc>
-            </InfoContainer>
-          </ImageContainer>
+          {items.map((item) => {
+            return (
+              <ImageContainer key={item.id}>
+                <Image src={item.url} />
+                <InfoContainer>
+                  <Name>{item.name}</Name>
+                  <Desc>{item.desc}</Desc>
+                </InfoContainer>
+              </ImageContainer>
+            );
+          })}
         </ProductContainer>
       </Wrap>
     </Container>
