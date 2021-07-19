@@ -2,6 +2,7 @@ import React from "react";
 import MainBannerSlider from "../components/MainBannerSlider";
 import MainIsThisSlider from "../components/MainIsThisSlider";
 import styled from "styled-components";
+import Header from "../components/Header"
 
 
 const Main = (props) => {
@@ -18,6 +19,7 @@ const Main = (props) => {
   console.log(title[0])
   return (
     <React.Fragment>
+      <Header></Header>
       <MainBannerSlider />
       <MainIsThisSlider id={title[0].id} title={title[0].title} />
       <MainIsThisSlider id={title[1].id} title={title[1].title} />
