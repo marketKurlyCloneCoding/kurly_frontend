@@ -6,15 +6,12 @@ import styled from "styled-components";
 
 const StyledSlider = styled(Slider)`
   .slick-track div {
-    max-width: 1050px;
+    width: 249px !important;
     height: 506px;
+    margin-right: 18px;
   }
   .slick-slide div {
     outline: none; // 슬라이드 클릭시 파란선을 제거하기 위해서 작성
-    height: 506px;
-    width: 249px;
-    margin-right: 18px;
-    overflow: visible;
   }
 `;
 
