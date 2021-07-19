@@ -4,14 +4,71 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: "absolute",
+        top: "160px",
+        right: "20px",
+        zIndex: 9999,
+      }}
+      onClick={onClick}
+    >
+      <img
+        src="https://res.kurly.com/pc/service/main/1908/btn_next_default.png?v=1"
+        alt=""
+      />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: "absolute",
+        top: "160px",
+        left: "-30px",
+        zIndex: 9996,
+      }}
+      onClick={onClick}
+    >
+      <img
+        src="https://res.kurly.com/pc/service/main/1908/btn_prev_default.png?v=1"
+        alt=""
+      />
+    </div>
+  );
+}
+
 const StyledSlider = styled(Slider)`
-  .slick-track div {
-    width: 249px !important;
+  .slick-list {
+    max-width: 1050px;
+    height: 506px;
+  }
+  .slick-slider {
+    height: 506px;
+  }
+  /* .slick-track div {
+    box-sizing: border-box;
+    max-width: 249px !important;
     height: 506px;
     margin-right: 18px;
-  }
+  } */
   .slick-slide div {
     outline: none; // 슬라이드 클릭시 파란선을 제거하기 위해서 작성
+    margin-right: 18px;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    content: none !important;
   }
 `;
 
@@ -35,7 +92,7 @@ const Title = styled.h3`
 `;
 
 const ProductContainer = styled.div`
-  width: 1050px;
+  max-width: 1050px;
   height: 506px;
   margin: 0 auto;
 `;
@@ -43,7 +100,7 @@ const ProductContainer = styled.div`
 // 그 뒤로 position: relative
 const ProductList = styled.div`
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
   height: 506px;
 `;
@@ -53,101 +110,116 @@ const items = [
     id: 1,
     url: "https://img-cf.kurly.com/shop/data/goods/1593592173804l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
-    dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    dc: null,
+    price: "12,600",
+    original_price: null,
   },
   {
     id: 2,
     url: "https://img-cf.kurly.com/shop/data/goods/1572590631750l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 3,
     url: "https://img-cf.kurly.com/shop/data/goods/1498728876917l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 4,
     url: "https://img-cf.kurly.com/shop/data/goods/1623999643376l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 5,
     url: "https://img-cf.kurly.com/shop/data/goods/1498094462978l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 6,
     url: "https://img-cf.kurly.com/shop/data/goods/1508220691321l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 7,
     url: "https://img-cf.kurly.com/shop/data/goods/1508133192766l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 8,
     url: "https://img-cf.kurly.com/shop/data/goods/1527832020304l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 9,
     url: "https://img-cf.kurly.com/shop/data/goods/157792889589l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
   },
   {
     id: 10,
     url: "https://img-cf.kurly.com/shop/data/goods/1497429997949l0.jpg",
     name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
     dc: "16",
-    dc_price: "12,600",
-    price: "15,000",
+    price: "12,600",
+    original_price: "15,000",
+  },
+  {
+    id: 11,
+    url: "https://img-cf.kurly.com/shop/data/goods/1497429997949l0.jpg",
+    name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
+    dc: "16",
+    price: "12,600",
+    original_price: "15,000",
+  },
+  {
+    id: 12,
+    url: "https://img-cf.kurly.com/shop/data/goods/1497429997949l0.jpg",
+    name: "[존쿡 델리미트] 바베큐 백립 450g (냉동)",
+    dc: "16",
+    price: "12,600",
+    original_price: "15,000",
   },
 ];
 
-const ImageContainer = styled.div`
-  width: 249px;
-  margin-right: 18px;
-`;
+const ImageContainer = styled.div``;
 
 const Image = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  width: 249px;
+  height: 320px;
 `;
 
 const MainIsThisSlider = (props) => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     initialSlide: 0,
     responsive: [
       {
@@ -157,6 +229,7 @@ const MainIsThisSlider = (props) => {
           slidesToScroll: 3,
           infinite: true,
           dots: true,
+          arrow: false,
         },
       },
       {
@@ -168,7 +241,7 @@ const MainIsThisSlider = (props) => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 300,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -187,6 +260,18 @@ const MainIsThisSlider = (props) => {
         <ProductList>
           <StyledSlider {...settings}>
             {items.map((item) => {
+              console.log(item.dc);
+              if (item.dc === null) {
+                return (
+                  <ImageContainer key={item.id}>
+                    <Image src={item.url} />
+                    <InfoContainer>
+                      <Name>{item.name}</Name>
+                      <Price>{item.price + `원`}</Price>
+                    </InfoContainer>
+                  </ImageContainer>
+                );
+              }
               return (
                 <ImageContainer key={item.id}>
                   <Image src={item.url} />
@@ -194,9 +279,9 @@ const MainIsThisSlider = (props) => {
                     <Name>{item.name}</Name>
                     <Price>
                       <Dc>{item.dc + `%`}</Dc>
-                      {item.dc_price + `원`}
+                      {item.price + `원`}
                     </Price>
-                    <Cost>{item.price + `원`} </Cost>
+                    <Cost>{item.original_price + `원`} </Cost>
                   </InfoContainer>
                 </ImageContainer>
               );
