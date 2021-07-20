@@ -4,6 +4,8 @@ import styled from "styled-components";
 import ListPage from "../components/ListPage";
 import banner from "./banner.jpg";
 
+import ProductCard from "../components/ProductCard";
+
 const GoodsList = (props) => {
   return (
     <React.Fragment>
@@ -13,7 +15,7 @@ const GoodsList = (props) => {
             <img src={banner} />
           </Banner>
         </InnerMenu>
-        <ListPage>이미지 들어가는 곳</ListPage>
+        <ProductCard />
       </Page>
     </React.Fragment>
   );
