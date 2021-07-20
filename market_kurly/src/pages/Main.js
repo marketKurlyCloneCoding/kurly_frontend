@@ -1,10 +1,11 @@
 import React from "react";
 import MainBannerSlider from "../components/MainBannerSlider";
-import MainIsThisSlider from "../components/MainIsThisSlider";
 import styled from "styled-components";
 import Header from "../components/Header"
 import MainMiddleBanner from "../components/MainMiddleBanner";
-import MainSpecialBanner from "../components/MainSpecialBanner";
+import MainOfferDeal from "../components/MainOfferDeal";
+import MainHotDeal from "../components/MainHotDeal";
+import MainSpecialDeal from "../components/MainSpecialDeal";
 const title = [
   {
     id: 0,
@@ -17,13 +18,14 @@ const title = [
 ]
 
 const Main = (props) => {
+
   return (
     <React.Fragment>
       <Header></Header>
       <MainBannerSlider />
-      <MainIsThisSlider id={title[0].id} title={title[0].title} />
-      <MainSpecialBanner/>
-      <MainIsThisSlider id={title[1].id} title={title[1].title} />
+      <MainOfferDeal title={title[0].title} />
+      <MainSpecialDeal/>
+      <MainHotDeal title={title[1].title} />
       <MainMiddleBanner/>
     </React.Fragment>
   )
