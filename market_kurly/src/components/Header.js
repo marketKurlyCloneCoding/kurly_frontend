@@ -1,7 +1,7 @@
 import React from "react";
-
-
 import styled from "styled-components";
+
+//이미지 파일
 import logo from "./image/logo.png";
 import menu from "./image/menu.png";
 import search from "./image/search.webp";
@@ -12,32 +12,34 @@ import vege_original from "./image/vege_original.png";
 import fruit_original from "./image/fruit_original.png";
 import seafood_original from "./image/seafood_original.png";
 
+
+
 const Header = (props) => {
     return (
         <React.Fragment>
-            <div>
-            <UserMenu>
-                <Gif>
-                <img src={dawn_delivery} style={{ width: "135px"}}/>
-                </Gif>
-                <LineMenu>
-                    <Login style={{color: "#5f0080"}}>
-                        회원가입
-                    </Login>
-                    <Login>
-                        로그인
-                    </Login>
-                    <Login>
-                        고객센터
-                    </Login>
-                </LineMenu>
-            </UserMenu>
-                  <HeaderLogo>
+            <HeaderBox>
+                <UserMenu>
+                    <Gif>
+                     <img src={dawn_delivery} style={{ width: "135px"}}/>
+                    </Gif>
+                    <LineMenu>
+                        <Login style={{color: "#5f0080"}}>
+                            회원가입
+                        </Login>
+                        <Login>
+                            로그인
+                        </Login>
+                        <Login>
+                            고객센터
+                        </Login>
+                    </LineMenu>
+                </UserMenu>
+                 <HeaderLogo>
                     <LogoImg>
                          <img src={logo} style={{ width: "103px", marginTop:"-13px"}}/>
                     </LogoImg>
                  </HeaderLogo>
-                    <Gnb>
+                 <Gnb>
                         <Category> 
                             <img src={menu} style={{ width: "16px", marginRight:"12px"}}/>
                             <ItemList className="dropDownMenu">
@@ -86,28 +88,28 @@ const Header = (props) => {
                                 </ItemList>
                             전체 카테고리 
                         </Category>
-                        <Tools>
-                                <input style={{  
-                                    width: "166px",
-                                    height: "36px",
-                                    padding: "0 60px 0 14px",
-                                    border: "1px solid #f7f7f6",
-                                    borderRadius: "18px",
-                                    backgroundColor: "#f7f7f7",
-                                    fontWeight: "400",
-                                    fontSize: "12px",
-                                    color: "#666",
-                                    lineHeight: "16px"
-                                }} 
-                                    placeholder="search" />
-                                    <img src={search} style={{position:"absolute",width:"30px", left:"202px", top:"10px"}}/>
-                                    <ToolsItem>
-                                        <img src={delivery}  style={{ width: "30px", margin:"0px 10px 0px 0px"}}/>
-                                        <img src={cart} style={{ width: "30px", margin:"0px 10px 0px 0px"}}/>
-                                    </ToolsItem>
+                         <Tools>
+                                 <input style={{  
+                                        width: "166px",
+                                        height: "36px",
+                                        padding: "0 60px 0 14px",
+                                        border: "1px solid #f7f7f6",
+                                        borderRadius: "18px",
+                                        backgroundColor: "#f7f7f7",
+                                        fontWeight: "400",
+                                        fontSize: "12px",
+                                        color: "#666",
+                                        lineHeight: "16px"
+                                        }} 
+                                        placeholder="search" />
+                                        <img src={search} style={{position:"absolute",width:"30px", left:"202px", top:"10px"}}/>
+                                        <ToolsItem>
+                                            <img src={delivery}  style={{ width: "30px", margin:"0px 10px 0px 0px"}}/>
+                                            <img src={cart} style={{ width: "30px", margin:"0px 10px 0px 0px"}}/>
+                                        </ToolsItem>
                         </Tools>
                     </Gnb>
-        </div>
+        </HeaderBox>
     </React.Fragment>
     )
 }
@@ -116,6 +118,11 @@ Header.defaultProps = {}
 
 export default Header;
 
+const HeaderBox = styled.div`
+    width: auto;;
+    height: auto;
+
+`
 
 
 const UserMenu  = styled.div`
@@ -124,6 +131,7 @@ const UserMenu  = styled.div`
     height: 37px;
     margin: 0 auto;
 `
+// 새벽배송 gif
 const Gif = styled.div`
     float: left;
     height: 37px;
@@ -160,11 +168,8 @@ const LogoImg = styled.div`
     height: 79px;
     margin: 0 auto;
 `
-// const Sticky = styled.div`
-//     position: sticky;
-//     top:0px;
-// `
 
+//네비게이션 전체 감싸는 태그
 const Gnb= styled.div`
     sticky{
         position: -webkit-sticky;
@@ -177,7 +182,7 @@ const Gnb= styled.div`
     margin: 0 auto ;
 `
 
-
+//전체 카테고리 <- 호버하면 밑에 아이템 박스 나올 수 있도록
 const Category = styled.div`
     &:hover .dropDownMenu {
         display: flex;
@@ -189,7 +194,7 @@ const Category = styled.div`
         padding: 10px 0 30px;
         text-align: left;
         font-size:14px;
-        background-color:#fff;
+   
     }
     .dropDownMenu {
         display: none;
@@ -200,7 +205,7 @@ const Category = styled.div`
     width: 360px;
     height: 40px;
     padding: 16px 0px 0px;
-
+ 
 `
 //ItemList 용도는 드롭박스 내에 아이템들을 묶어줘서 드롭박스 css를 먹게해줌
 const ItemList = styled.div`
@@ -210,6 +215,7 @@ const ItemList = styled.div`
     height:auto;
     background-color: #fafafa;
 `
+//드롭박스 내 가장 왼쪽 줄 박스
 const Item = styled.div`
     &:hover .dropDownItem {
         display: flex;
@@ -218,7 +224,7 @@ const Item = styled.div`
         top: 0px;
         left: 219px;
         font-size:14px;
- 
+        background-color:white;
     }
     .dropDownItem {
         display: none;
@@ -229,9 +235,10 @@ const Item = styled.div`
     padding: 4px 16px;
     font-size: 16px;
     z-index: 90;
-
+    background-color: #fafafa;
 
 `
+// 드롭박스 2차 박스 - 친환경...등
 const ItemDetail = styled.div`
     width: 219px;
     height: 40px;
@@ -240,7 +247,7 @@ const ItemDetail = styled.div`
     font-size: 16px;
     transition: all 5s linear
 `
-
+// 검색창/카트/지도 전체 묶어주는
 const Tools = styled.div`
     position:relative;
     width: 360px;
@@ -249,6 +256,7 @@ const Tools = styled.div`
     padding: 6px 0px 0px;
 `
 
+// 카트/지도 각각의 css
 const ToolsItem = styled.div`
     float:right;
     width: 90px;
