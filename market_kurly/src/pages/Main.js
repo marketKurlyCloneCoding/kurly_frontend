@@ -1,7 +1,6 @@
 import React from "react";
 import MainBannerSlider from "../components/MainBannerSlider";
 import styled from "styled-components";
-import Header from "../components/Header"
 import MainMiddleBanner from "../components/MainMiddleBanner";
 import MainOfferDeal from "../components/MainOfferDeal";
 import MainHotDeal from "../components/MainHotDeal";
@@ -21,7 +20,6 @@ const Main = (props) => {
 
   return (
     <React.Fragment>
-      <Header></Header>
       <MainBannerSlider />
       <MainOfferDeal title={title[0].title} />
       <MainSpecialDeal/>
