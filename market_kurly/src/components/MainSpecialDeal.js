@@ -16,19 +16,19 @@ const MainSpecialDeal = (props) => {
         <Title>특가/혜택</Title>
       </TitleContainer>
       <Wrap>
-        <ProductContainer>
-          {datas.map((data) => {
-            return (
-              <ImageContainer key={data.id}>
+        {datas.map((data) => {
+          return (
+            <ProductContainer key={data.id}>
+              <ImageContainer>
                 <Image src={data.img} />
-                <InfoContainer>
-                  <Name>{data.title}</Name>
-                  <Desc>{data.subTitle}</Desc>
-                </InfoContainer>
               </ImageContainer>
-            );
-          })}
-        </ProductContainer>
+              <InfoContainer>
+                <Name>{data.title}</Name>
+                <Desc>{data.subTitle}</Desc>
+              </InfoContainer>
+            </ProductContainer>
+          );
+        })}
       </Wrap>
     </Container>
   );
@@ -61,29 +61,52 @@ const Name = styled.span`
   letter-spacing: -0.3px;
 `;
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div`
+  width: 338;
+`;
 
 const ImageContainer = styled.div`
-  position: relative;
-  float: left;
-  width: 338px;
-  margin-right: 18px;
+  width: 338;
+  height: 338px;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  width: 338px;
+  height: 338px;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  :hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
 `;
 
 const Wrap = styled.div`
   max-width: 1050px;
+  height: 538px;
   margin: 0 auto;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
 `;
 
 const ProductContainer = styled.div`
-  width: 1068px;
+  min-width: 338px;
   height: 538px;
-  overflow: hidden;
+  float: left;
+  margin-right: 12px;
 `;
 
 const TitleContainer = styled.div`

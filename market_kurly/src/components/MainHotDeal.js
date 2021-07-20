@@ -106,11 +106,32 @@ const ProductList = styled.div`
   height: 506px;
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+  width: 249px;
+  height: 320px;
+  overflow: hidden;
+`;
 
 const Image = styled.img`
   width: 249px;
   height: 320px;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  :hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
 `;
 
 const MainHotDeal = (props) => {
@@ -171,18 +192,22 @@ const MainHotDeal = (props) => {
             {datas.map((data) => {
               if (data.dc === null) {
                 return (
-                  <ImageContainer key={data.id}>
-                    <Image src={data.img} />
+                  <>
+                    <ImageContainer key={data.id}>
+                      <Image src={data.img} />
+                    </ImageContainer>
                     <InfoContainer>
                       <Name>{data.title}</Name>
                       <Price>{data.price + `원`}</Price>
                     </InfoContainer>
-                  </ImageContainer>
+                  </>
                 );
               }
               return (
-                <ImageContainer key={data.id}>
-                  <Image src={data.img} />
+                <>
+                  <ImageContainer key={data.id}>
+                    <Image src={data.img} />
+                  </ImageContainer>
                   <InfoContainer>
                     <Name>{data.title}</Name>
                     <Price>
@@ -191,7 +216,7 @@ const MainHotDeal = (props) => {
                     </Price>
                     <Cost>{data.original_price + `원`} </Cost>
                   </InfoContainer>
-                </ImageContainer>
+                </>
               );
             })}
           </StyledSlider>
