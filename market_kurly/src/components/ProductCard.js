@@ -1,33 +1,40 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
-import { actionCreators as productActions } from "../redux/modules/product";
-import { useDispatch, useSelector } from "react-redux";
-
 
 const ProductCard = (props) => {
-  const dispatch = useDispatch();
-  const datas = useSelector((state) => state.product.Cardlist);
-  useEffect(() => {
-    dispatch(productActions.getProductCardAPI());
-  }, []);
   return (
     <React.Fragment>
-         {datas.map((data) => {
-           return(
-      <ProductContainer key={data.id}>
-        <ProductImgWrap>
-          <img src={data.img} />
-        </ProductImgWrap>
-        <ProductTitle>{data.title}</ProductTitle>
-        <CostBox>
-          <ProductDc>{data.dc+'%'}</ProductDc>
-          <ProductPrice>{data.price+'원'}</ProductPrice>
-          <ProductOriginalPrice>{data.original_price}</ProductOriginalPrice>
-        </CostBox>
-        <ProductSubTitle>{data.subTitle}</ProductSubTitle>
-      </ProductContainer>
-      );
-})};
+      {props.datas.map((data) => {
+        if (data.dc === null) {
+          return (
+            <ProductContainer key={data.id}>
+              <ProductImgWrap>
+                <img src={data.img} />
+              </ProductImgWrap>
+              <ProductTitle>{data.title}</ProductTitle>
+              <CostBox>
+                <ProductPrice>{data.price + "원"}</ProductPrice>
+              </CostBox>
+              <ProductSubTitle>{data.subTitle}</ProductSubTitle>
+            </ProductContainer>
+          );
+        }
+        return (
+          <ProductContainer key={data.id}>
+            <ProductImgWrap>
+              <img src={data.img} />
+            </ProductImgWrap>
+            <ProductTitle>{data.title}</ProductTitle>
+            <CostBox>
+              <ProductDc>{data.dc + "%"}</ProductDc>
+              <ProductPrice>{data.price + "원"}</ProductPrice>
+              <ProductOriginalPrice>{data.original_price}</ProductOriginalPrice>
+            </CostBox>
+            <ProductSubTitle>{data.subTitle}</ProductSubTitle>
+          </ProductContainer>
+        );
+      })}
+      ;
     </React.Fragment>
   );
 };
