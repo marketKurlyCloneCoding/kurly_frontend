@@ -1,21 +1,33 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
+import { actionCreators as productActions } from "../redux/modules/product";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const ProductCard = (props) => {
+  const dispatch = useDispatch();
+  const datas = useSelector((state) => state.product.Cardlist);
+  useEffect(() => {
+    dispatch(productActions.getProductCardAPI());
+  }, []);
   return (
     <React.Fragment>
-      <ProductContainer>
+         {datas.map((data) => {
+           return(
+      <ProductContainer key={data.id}>
         <ProductImgWrap>
-          <img src="https://img-cf.kurly.com/shop/data/goods/153543279519l0.jpg" />
+          <img src={data.img} />
         </ProductImgWrap>
-        <ProductTitle>[기획특가]친환경 감자 2kg</ProductTitle>
+        <ProductTitle>{data.title}</ProductTitle>
         <CostBox>
-          <ProductDc>28%</ProductDc>
-          <ProductPrice>4,990원</ProductPrice>
-          <ProductOriginalPrice>6,990원</ProductOriginalPrice>
+          <ProductDc>{data.dc+'%'}</ProductDc>
+          <ProductPrice>{data.price+'원'}</ProductPrice>
+          <ProductOriginalPrice>{data.original_price}</ProductOriginalPrice>
         </CostBox>
-        <ProductSubTitle>근채류의 팔방미인</ProductSubTitle>
+        <ProductSubTitle>{data.subTitle}</ProductSubTitle>
       </ProductContainer>
+      );
+})};
     </React.Fragment>
   );
 };

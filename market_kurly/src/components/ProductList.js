@@ -6,19 +6,20 @@ import ProductCard from "./ProductCard";
 import banner from "../pages/banner.jpg";
 
 const ProductList = (props) => {
+  const ProductCards = [1];
   return (
     <React.Fragment>
       <Banner>
-        <img src={banner} />
+        <img src={banner} style={{margin: "30px auto"}} />
       </Banner>
       <Grid>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
+        {/* {ProductCards.map((ProductCard)=>
+        (
+
+        ))}  */}
+        <ProductCard />
+
+
       </Grid>
     </React.Fragment>
   );
@@ -26,6 +27,7 @@ const ProductList = (props) => {
 const Banner = styled.div`
   max-width: 1050px;
   margin: 0 auto;
+  height: 353px;
 `;
 
 const Grid = styled.div`

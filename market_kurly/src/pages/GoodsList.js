@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import ListPage from "../components/ListPage";
+// import ListPage from "../components/ListPage";
 import banner from "./banner.jpg";
 
 import ProductCard from "../components/ProductCard";

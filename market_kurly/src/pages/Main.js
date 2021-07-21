@@ -1,6 +1,6 @@
 import React from "react";
 import MainBannerSlider from "../components/MainBannerSlider";
-import styled from "styled-components";
+
 import MainMiddleBanner from "../components/MainMiddleBanner";
 import MainOfferDeal from "../components/MainOfferDeal";
 import MainHotDeal from "../components/MainHotDeal";
