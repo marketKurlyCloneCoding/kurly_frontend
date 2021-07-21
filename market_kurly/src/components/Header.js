@@ -233,7 +233,7 @@ const Item = styled.div`
     width: 219px;
     height: 40px;
     padding: 4px 16px;
-    font-size: 16px;
+    font-size: 14px;
     z-index: 90;
     background-color: #fafafa;
 
@@ -242,9 +242,9 @@ const Item = styled.div`
 const ItemDetail = styled.div`
     width: 219px;
     height: 40px;
-    padding: 4px 16px;
+    padding: 4px 32px;
     background-color: #fafafa;
-    font-size: 16px;
+    font-size: 14px;
     transition: all 5s linear
 `
 // 검색창/카트/지도 전체 묶어주는
