@@ -19,7 +19,7 @@ const ProductList = (props) => {
     } else if (props.match.url === "/category/vege/2") {
       dispatch(productActions.getProductCardAPI("inner=vege3"));
     } else if (props.match.url === "/category/vege3") {
-      // dispatch(productActions.getProductCardAPI("outer=vege"));
+      dispatch(productActions.getProductCardAPI("outer=vege"));
     }
     if (props.match.url === "/category/fruit/3") {
       dispatch(productActions.getProductCardAPI("inner=fruit3"));

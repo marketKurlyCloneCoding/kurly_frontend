@@ -32,7 +32,7 @@ const initialState = {
 };
 
 const getOfferDealProductAPI = () => {
-  const product_API = "http://localhost/api/v1/offer_deal";
+  const product_API = "http://api.prodoben.com/api/v1/offer_deal";
   return function (dispatch, getState, { history }) {
     axios
       .get(product_API)
@@ -89,7 +89,7 @@ const getSpecialDealProductAPI = () => {
 };
 
 const getHotDealProductAPI = () => {
-  const product_API = "http://localhost/api/v1/hot_deal";
+  const product_API = "http://api.prodoben.com/api/v1/hot_deal";
   return function (dispatch, getState, { history }) {
     axios
       .get(product_API)
@@ -118,7 +118,7 @@ const getHotDealProductAPI = () => {
 };
 
 const getProductCardAPI = (props) => {
-  const product_API = `http://localhost/api/v1/category?${props}`;
+  const product_API = `http://api.prodoben.com/api/v1/category?${props}`;
   return function (dispatch, getState, { history }) {
     axios
       .get(product_API)

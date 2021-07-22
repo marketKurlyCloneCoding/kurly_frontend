@@ -3,10 +3,7 @@ import styled from "styled-components";
 
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  NavLink,
   withRouter,
 } from "react-router-dom";
 
@@ -54,7 +51,7 @@ export default withRouter(({ location: { pathname } }) => (
                 marginTop: "8px",
                 marginRight: "12px",
               }}
-            />{" "}
+            />
             채소</SA>
             <ItemList className="dropDownItem">
             <SA href="/category/vege/1"
@@ -76,7 +73,7 @@ export default withRouter(({ location: { pathname } }) => (
                   height: "24px",
                   marginRight: "12px",
                 }}
-              />{" "}
+              />
               과일・견과・쌀
             </SA>
 
@@ -113,7 +110,7 @@ export default withRouter(({ location: { pathname } }) => (
                   height: "24px",
                   marginRight: "12px"
                 }}
-                alt="과일"/>{" "}
+                alt="과일"/>
               수산・해산・건어물
             </SA>
 
