@@ -28,7 +28,9 @@ const ProductCard = (props) => {
             <CostBox>
               <ProductDc>{data.dc + "%"}</ProductDc>
               <ProductPrice>{data.price + "원"}</ProductPrice>
-              <ProductOriginalPrice>{data.original_price}</ProductOriginalPrice>
+              <ProductOriginalPrice>
+                {data.original_price + "원"}
+              </ProductOriginalPrice>
             </CostBox>
             <ProductSubTitle>{data.subTitle}</ProductSubTitle>
           </ProductContainer>

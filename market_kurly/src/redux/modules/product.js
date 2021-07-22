@@ -10,7 +10,9 @@ const SET_PRODUCT_CARD = "SET_PRODUCT_CARD";
 const setOfferDealProduct = createAction(SET_OFFER_PRODUCT, (product_list) => ({
   product_list,
 }));
-const setSpecialDealProduct = createAction(SET_SPECIAL_PRODUCT, (product_list) => ({
+const setSpecialDealProduct = createAction(
+  SET_SPECIAL_PRODUCT,
+  (product_list) => ({
     product_list,
   })
 );
@@ -115,15 +117,16 @@ const getHotDealProductAPI = () => {
   };
 };
 
-const getProductCardAPI = () => {
-  const product_API = "http://localhost/api/v1/category?outer=vege";
+const getProductCardAPI = (props) => {
+  const product_API = `http://localhost/api/v1/category?${props}`;
   return function (dispatch, getState, { history }) {
-    axios.get(product_API).then((res) => {
-      let product_list = [];
-      let response_data = res.data;
-      response_data.forEach((rd) => {
-
-        let product = {
+    axios
+      .get(product_API)
+      .then((res) => {
+        let product_list = [];
+        let response_data = res.data;
+        response_data.forEach((rd) => {
+          let product = {
             id: rd.id,
             img: rd.img,
             title: rd.title,
@@ -131,15 +134,15 @@ const getProductCardAPI = () => {
             price: rd.price,
             dc: rd.dc,
             original_price: rd.original_price,
-        }
-        product_list.push(product);
+          };
+          product_list.push(product);
+        });
+        dispatch(setProductCard(product_list));
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      dispatch(setProductCard(product_list));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+  };
 };
 
 export default handleActions(
@@ -156,7 +159,7 @@ export default handleActions(
       produce(state, (draft) => {
         draft.Hotlist = action.payload.product_list;
       }),
-      [SET_PRODUCT_CARD]: (state, action) =>
+    [SET_PRODUCT_CARD]: (state, action) =>
       produce(state, (draft) => {
         draft.Cardlist = action.payload.product_list;
       }),

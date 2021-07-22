@@ -136,12 +136,10 @@ const Image = styled.img`
 
 const MainHotDeal = (props) => {
   const dispatch = useDispatch();
-  const da = useSelector((state) => state.product);
   const datas = useSelector((state) => state.product.Hotlist);
   useEffect(() => {
     dispatch(productActions.getHotDealProductAPI());
   }, []);
-  console.log(da);
   console.log(datas);
 
   const settings = {
