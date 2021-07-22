@@ -25,7 +25,7 @@ export default withRouter(({ location: { pathname } }) => (
   <HeaderBox>
     <UserMenu>
       <Gif>
-        <img src={dawn_delivery} style={{ width: "135px" }} />
+        <img src={dawn_delivery} style={{ width: "135px" }} alt="dawn_delivery"/>
       </Gif>
       <LineMenu>
         <Login style={{ color: "#5f0080" }}>회원가입</Login>
@@ -36,15 +36,16 @@ export default withRouter(({ location: { pathname } }) => (
     <HeaderLogo>
       <LogoImg>
         <SLink current={false} to="/">
-          <img src={logo} style={{ width: "103px", marginTop: "-13px" }} />
+          <img src={logo} style={{ width: "103px", marginTop: "-13px" }} alt="logo"/>
         </SLink>
       </LogoImg>
     </HeaderLogo>
     <Gnb>
       <Category>
-        <img src={menu} style={{ width: "16px", marginRight: "12px" }} />
+        <img src={menu} style={{ width: "16px", marginRight: "12px" }} alt="menu"/>
         <ItemList className="dropDownMenu">
           <Item>
+          <SA href="/category/fruit" current={pathname === "/category/vege"}>
             <img
               src={vege_original}
               style={{
@@ -54,11 +55,16 @@ export default withRouter(({ location: { pathname } }) => (
                 marginRight: "12px",
               }}
             />{" "}
-            채소
+            채소</SA>
             <ItemList className="dropDownItem">
+            <SA href="/category/vege/1"
+                current={pathname === "/category/vege/1"}>
               <ItemDetail>친환경</ItemDetail>
-              <ItemDetail>고구마・감자・당근</ItemDetail>
-              <ItemDetail>시금치・쌈채소・나물</ItemDetail>
+              </SA>
+              <SA href="/category/vege/2"  current={pathname === "/category/vege/2"}>
+              <ItemDetail>고구마・감자・당근</ItemDetail></SA>
+              <SA href="/category/vege/3" current={pathname === "/category/vege/3"}>
+              <ItemDetail>시금치・쌈채소・나물</ItemDetail></SA>
             </ItemList>
           </Item>
           <Item>
@@ -105,9 +111,9 @@ export default withRouter(({ location: { pathname } }) => (
                 style={{
                   width: "24px",
                   height: "24px",
-                  marginRight: "12px",
+                  marginRight: "12px"
                 }}
-              />{" "}
+                alt="과일"/>{" "}
               수산・해산・건어물
             </SA>
 
@@ -159,16 +165,16 @@ export default withRouter(({ location: { pathname } }) => (
             left: "202px",
             top: "10px",
           }}
-        />
+          alt="검색"/>
         <ToolsItem>
           <img
             src={delivery}
             style={{ width: "30px", margin: "0px 10px 0px 0px" }}
-          />
+            alt="배달"/>
           <img
             src={cart}
             style={{ width: "30px", margin: "0px 10px 0px 0px" }}
-          />
+            alt="장바구니"/>
         </ToolsItem>
       </Tools>
     </Gnb>
@@ -176,8 +182,9 @@ export default withRouter(({ location: { pathname } }) => (
 ));
 
 const SA = styled.a`
-  text-decoration: none;
-  color: ${(props) => (props.current ? "#5f0080" : "#333")};
+    text-decoration: none;
+    color: ${(props) => (props.current ? "#5f0080" : "#333")};
+    width:219px;
 `;
 
 const SLink = styled(Link)`
@@ -237,11 +244,6 @@ const LogoImg = styled.div`
 
 //네비게이션 전체 감싸는 태그
 const Gnb = styled.div`
-  sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
   width: 1050px;
   letter-spacing: -0.3px;
   height: 56px;
@@ -256,13 +258,14 @@ const Category = styled.div`
     position: absolute;
     top: 150px;
     /* left: 0px; */
-    width: 100%;
     padding: 10px 0px 30px;
     text-align: left;
     font-size: 14px;
+    background-color: #fafafa;
   }
   .dropDownMenu {
     display: none;
+
   }
   z-index: 90;
   float: left;
@@ -270,6 +273,7 @@ const Category = styled.div`
   width: 360px;
   height: 40px;
   padding: 16px 0px 0px;
+  
 `;
 
 //ItemList 용도는 드롭박스 내에 아이템들을 묶어줘서 드롭박스 css를 먹게해줌
@@ -279,7 +283,7 @@ const ItemList = styled.div`
   width: 219px;
   height: auto;
   z-index: 99;
-  background-color: #fafafa;
+
 `;
 //드롭박스 내 가장 왼쪽 줄 박스
 const Item = styled.div`
@@ -300,17 +304,17 @@ const Item = styled.div`
   height: 40px;
   padding: 4px 16px;
   font-size: 14px;
-  z-index: 90;
-  background-color: #fafafa;
+
+  
 `;
 // 드롭박스 2차 박스 - 친환경...등
 const ItemDetail = styled.div`
+  justify-content: start;
   width: 219px;
   height: 40px;
-  padding: 4px 32px;
+  padding: 10px 32px;
   background-color: #fafafa;
   font-size: 14px;
-  transition: all 5s linear;
 `;
 
 // 검색창/카트/지도 전체 묶어주는

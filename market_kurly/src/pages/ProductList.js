@@ -12,6 +12,15 @@ import { history } from "../redux/configureStore";
 const ProductList = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
+    if (props.match.url === "/category/vege/1") {
+      dispatch(productActions.getProductCardAPI("inner=vege1"));
+    } else if (props.match.url === "/category/vege/2") {
+      dispatch(productActions.getProductCardAPI("inner=vege2"));
+    } else if (props.match.url === "/category/vege/2") {
+      dispatch(productActions.getProductCardAPI("inner=vege3"));
+    } else if (props.match.url === "/category/vege3") {
+      // dispatch(productActions.getProductCardAPI("outer=vege"));
+    }
     if (props.match.url === "/category/fruit/3") {
       dispatch(productActions.getProductCardAPI("inner=fruit3"));
     } else if (props.match.url === "/category/fruit/2") {
